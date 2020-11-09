@@ -12,7 +12,7 @@
                  [mount "0.1.12"]
                  [com.fasterxml.jackson.core/jackson-core "2.10.2"]
                  [com.fasterxml.jackson.core/jackson-databind "2.10.2"]
-                 [metosin/jsonista "0.2.5"]]
+                 [metosin/jsonista "0.2.7"]]
   ;:main ^:skip-aot clojure-noob.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})
