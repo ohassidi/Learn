@@ -26,11 +26,11 @@ public class DynamoDBWrapper {
 
         System.out.println("Table is: " + getTableStatus(ddb, tableName));
 
-        int count = queryTable(ddb, tableName, primaryPartitionKeyName, partitionKeyName, partitionKeyVal,partitionAlias ) ;
-        System.out.println("Found "+count + " record(s) in table");
+        int count = queryTable(ddb, tableName, primaryPartitionKeyName, partitionKeyName, partitionKeyVal, partitionAlias);
+        System.out.println("Found " + count + " record(s) in table");
     }
 
-    public static String getTableStatus (DynamoDbClient ddb, String tableName) {
+    public static String getTableStatus(DynamoDbClient ddb, String tableName) {
         DescribeTableRequest request = DescribeTableRequest.builder()
                 .tableName(tableName)
                 .build();
@@ -47,7 +47,7 @@ public class DynamoDBWrapper {
                                  String partitionAlias) {
 
         // Set up an alias for the partition key name in case it's a reserved word
-        HashMap<String,String> attrNameAlias = new HashMap<>();
+        HashMap<String, String> attrNameAlias = new HashMap<>();
 
         attrNameAlias.put(partitionAlias, primaryPartitionKeyName);
 
@@ -55,7 +55,7 @@ public class DynamoDBWrapper {
         HashMap<String, AttributeValue> attrValues =
                 new HashMap<>();
         AttributeValue attributeValue = AttributeValue.builder().s(partitionKeyVal).build();
-        attrValues.put(":"+partitionKeyName, attributeValue);
+        attrValues.put(":" + partitionKeyName, attributeValue);
 
 //        Integer i = Integer.valueOf(AttributeValue.builder().n("1").build().n());
 
