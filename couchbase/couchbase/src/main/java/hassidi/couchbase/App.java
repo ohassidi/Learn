@@ -41,7 +41,7 @@ public class App
             TimeUnit.SECONDS.sleep(5L);
 
             ViewResult result = bucket.query(ViewQuery.from("test", "test"), 3, TimeUnit.SECONDS);
-            for (ViewRow row : result) {
+            for (ViewRow row : result.allRows()) {
                 System.out.println("Row: " + row); //prints the row
 //                System.out.println(row.document().content()); //retrieves the doc and prints content
             }
