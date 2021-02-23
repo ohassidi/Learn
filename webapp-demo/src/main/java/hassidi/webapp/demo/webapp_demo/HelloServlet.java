@@ -8,6 +8,6 @@ import java.io.IOException;
 
 public class HelloServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        response.getOutputStream().println("{}");
+        response.getOutputStream().println("{\"key\":\"val\"}");
     }
 }

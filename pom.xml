@@ -19,7 +19,7 @@
         <module>webapp-demo</module>
         <module>couchbase</module>
         <module>clojure</module>
-        <module>Java</module>
+        <module>java</module>
         <module>kotlin</module>
     </modules>
 
