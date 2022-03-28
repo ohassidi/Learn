@@ -7,7 +7,7 @@
                  ;[af-core-async "1.0.1"]
                  [org.clojure/clojure "1.10.1"]
                  [org.clojure/core.async "0.4.490"]
-                 [criterium "0.4.5"]
+                 [criterium "0.4.6"]
                  [cheshire "5.8.1"]
                  [mount "0.1.12"]
                  [com.fasterxml.jackson.core/jackson-core "2.10.2"]
