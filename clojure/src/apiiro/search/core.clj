@@ -27,15 +27,24 @@
     @l))
 
 (defn sort-by-val [m]
-  (into (sorted-map-by (fn [key1 key2]
-                         (compare [(get m key2) key2]
-                                  [(get m key1) key1])))
+  (into (sorted-map-by
+          (fn [key1 key2]
+            ;; comparing only by value can result unexpected result since the values are not unique
+            (compare [(get m key2) key2]
+                     [(get m key1) key1])))
         m))
 
 (defn take-x [x m]
-  (sort-by-val (into {} (map #(MapEntry. % (get m %)) (take x (keys m))))))
+  ;; since inserting into map order is not guarantee we need to sort again
+  (sort-by-val
+    ;; take the first x keys from the map and build a new map
+    (into {}
+          (map #(MapEntry. % (get m %))
+               (take x (keys m))))))
 
-(defn add-word-to-suggestions-top-10-list [combination word rank]
+(defn add-word-to-suggestions-top-10-list
+  "Build the list of top 10"
+  [combination word rank]
   (take-x 10 (sort-by-val (assoc (get @suggests combination) word rank))))
 
 (defn upsert-suggestion [word rank]
